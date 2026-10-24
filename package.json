@@ -1,8 +1,17 @@
 {
-  "name": "rea-agents",
+  "name": "dsh-rea",
   "mcpName": "io.github.morluto/rea",
   "version": "6.3.0",
-  "description": "Reverse engineer anything from your terminal or agent with one CLI and MCP server.",
+  "description": "REA (Reverse Engineer Anything) 逆向工程服务 MCP 工具集",
+  "meta": {
+    "title": "REA 逆向工程服务",
+    "description": "REA (Reverse Engineer Anything) 统一二进制分析、动态与静态检测、代码反编译与运行时证据追踪 MCP 工具集"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
   "license": "MIT",
   "repository": {
     "type": "git",

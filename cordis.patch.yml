@@ -1,0 +1,26 @@
+# ============================================================================
+# dsh-rea —— REA (Reverse Engineering Anything) 逆向工程服务 bundle patch
+# ============================================================================
+# 将 REA 逆向工程工具集作为 MCP 服务挂载到 DSH。
+#
+# 这一行 insert 属于本 bundle 自带的 patch：
+#   · 只有当本包被列进 profile 的 dsh.profile.bundles 时，它才会被应用；
+#   · 开关归插件管理界面「已安装插件」一栏；
+#   · 关闭本插件时，整段 insert 退出组合，REA 的 63 个逆向分析工具将不会被注入
+#     到模型上下文中，从而节省 ~160KB 的工具定义 token。
+# ============================================================================
+
+- insert:
+    - id: rea-mcp
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: rea
+        transport: stdio
+        command: cmd.exe
+        args:
+          - /d
+          - /c
+          - npx
+          - -y
+          - rea-agents@6.7.0
+          - mcp
