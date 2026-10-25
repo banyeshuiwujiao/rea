@@ -67,3 +67,7 @@ Thumbs.db
 /docs/public/product-catalog.json
 /docs/verification/managed-conformance-manifest.json
 /docs/verification/managed-conformance-ledger.json
+
+# .NET/构建中间产物（tests/fixtures/nativeaot 构建生成）
+**/obj/
+**/bin/
